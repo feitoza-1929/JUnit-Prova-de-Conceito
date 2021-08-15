@@ -10,27 +10,19 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
-/**
- * Essa estrutura de testes ainda é muito ordinária, contudo ainda serve para exemplificar
- * o ponto desse caso de estudo, o porquê de usarmos uma estrutura/framework, padrões e
- * boas práticas na elaboração de um ambiente e, em si, os testes.
- * 
- * Agora, observe como a estrutura do teste faz um pouco mais de sentido,
- *
- */
-
 @SpringBootTest
 class CalculadoraApplicationTests {
-
+	
+// 1º Teste
 	@Test
 	public void testesMenosIngenuosSoma() {
 		CalculadoraApplication calculadora = new CalculadoraApplication();
 
 		boolean temErro = false;
-		if(calculadora.somar(3,3) != 6){
+		if(calculadora.somar(-2,2) != 0){
 			temErro = true;
 		}
-		if(calculadora.somar(2, -2) != 0){
+		if(calculadora.somar(1, 1) != 2){
 			temErro = true;
 		}
 		if(temErro){
@@ -39,18 +31,20 @@ class CalculadoraApplicationTests {
 		
 	}
 
+// 2º Teste 
 	@Test
 	public void testeSomarTresMaisTres(){
 		CalculadoraApplication calculadora = new CalculadoraApplication();
-		assertEquals(0.0, calculadora.somar(3, 3));
+		assertEquals(0.0, calculadora.somar(-2, 2));
 	}
 
 	@Test
 	public void testeSomaResultarZero(){
 		CalculadoraApplication calculadora = new CalculadoraApplication();
-		assertEquals(0.0, calculadora.somar(2, -2));
+		assertEquals(2.0, calculadora.somar(1, 1));
 	}
 
+// 3º Teste
 	@BeforeAll
 	public static void setup(){
 		CalculadoraApplication calculadora = new CalculadoraApplication();

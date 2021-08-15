@@ -2,48 +2,33 @@ package com.intojunit.calculadora;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/* *
-* Iremos testar nossa biblioteca calculadora, para isso iremos usar de testes ingênuos.
-* Por que teste ingênuos ? Bem, eles simplesmentes são testes feitos sem a estrutura,
-* sendo redundante, de um framework, onde há padrões para melhor otimização, legibilidade e
-* confiabilidade dos testes, no caso, unitários. Veja o código abaixo onde testamos apenas dois metódos
-* da nossa biblioteca. 
-*/
-
-
 @SpringBootApplication
 public class TesteIngenuoCalculadora {
     public static void main(String[] args) {
-        CalculadoraApplication calculadora = new CalculadoraApplication();
-
-        if(erroNaSoma(calculadora)){
+        CalculadoraApplication calc = new CalculadoraApplication();
+        if(erroNaSoma(calc)){
             System.exit(1);
         }
-
-        if(corretudeNaSubtracao(calculadora) == false){
-            System.out.println("\n\n## Erro na Validação da subtração");
+        if (subtracaoEstaCerta(calc) == false) {
+            System.out.println("\n\n## Erro na validação da subtração ##\n\n");
             System.exit(1);
         }
         System.out.println("\n\n==> Todos os testes passaram OK <==");
         System.exit(0);
-
-        /**
-        *Repare como a qualidade desse código é duvidosa, anote essa observação.
-        */
     }
 
-    private static boolean erroNaSoma(CalculadoraApplication calculadora){
+    private static boolean erroNaSoma(CalculadoraApplication calc){
         boolean temErro = false;
-        if(calculadora.somar(4, 4) != 8){
+        if(calc.somar(-2, 2) != 0){
             temErro = true;
         }
-        if(calculadora.somar(6, -6) != 0){
+        if(calc.somar(1, 1) != 2){
             temErro = true;
         }
-        if(calculadora.somar(-6, 6) != 0){
+        if(calc.somar(2, -2) != 0){
             temErro = true;
         }
-        if(calculadora.somar(0, 0) != 0){
+        if(calc.somar(1, -1) != 0){
             temErro = true;
         }
         if(temErro){
@@ -51,31 +36,24 @@ public class TesteIngenuoCalculadora {
         }
         return temErro;
     }
-    
-    /**
-     * Má nomeclatura, não está na cara que realmente é um teste da nossa biblioteca,
-     * inconstância em como validar e notificar o erro, deu pra entender ?
-     * A qualidade do código irá depender muito do programador, ou seja,
-     * reinventando a roda a cada escrita e abrindo incriveis brechas que irão
-     * ruir toda estrutura de testes desse software.
-     */
 
-    private static boolean corretudeNaSubtracao(CalculadoraApplication  calculadora){
-        boolean corretude = true;
-        if(calculadora.subtrair(7, 4) != 3){
-            corretude = false;
+    private static boolean subtracaoEstaCerta(CalculadoraApplication calc) {
+        if (calc.subtrair(2, 2) != 0) {
+            return false;
         }
-        if(calculadora.subtrair(6, -6) != 12){
-            corretude = false;
+        if (calc.subtrair(2, -2) != 4) {
+            return false;
         }
-        if(calculadora.subtrair(-6, 6) != -12){
-            corretude = false;
+        if (calc.subtrair(-2, 2) != -4) {
+            return false;
         }
-        if(calculadora.subtrair(2, 1) != 1){
-            corretude = false;
+        if (calc.subtrair(-2, -2) != 0) {
+            return false;
         }
-        return corretude;
+        if (calc.subtrair(0, 0) != 0) {
+            return false;
+        }
+        return true;
     }
-
     
 }
