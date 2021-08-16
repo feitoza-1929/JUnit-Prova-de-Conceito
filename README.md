@@ -108,7 +108,8 @@ public  class  TesteIngenuoCalculadora {
 
 }
 ```
-O que esse código te diz ? Não muita coisa, não é mesmo ? A culpa não é sua e nem devido a complexidade do algoritmo, porque não há, e, sim, a maneira com que foi escrito. E, sim, são testes, contudo irregulares. Mas por quê? Má nomenclatura, cadeia de métodos, falta de um padrão, afinal, será `true` ou `false` para emitir essa exceção\erro ? O método de verificação que irá emitir o  `erro` ou o método `main` ? E essa cadeia de verificações não pode criar um déficit de performance e otimização ? Tenho que ficar sempre instanciando a mesma `class CalculadoraApplication` toda vez que crio um novo método de teste ?
+O que esse código te diz ? Não muita coisa, não é mesmo ? A culpa não é sua e nem devido a complexidade do algoritmo, porque não há, e, sim, a maneira com que foi escrito. E, sim, são testes, contudo irregulares. Mas por quê? Má nomenclatura, cadeia de métodos, falta de um padrão, afinal, será `true` ou `false` para emitir essa exceção\erro ? Será o método de verificação, em si, que irá emitir o  `erro` ou o método `main` ? E essa cadeia de verificações não pode criar um déficit de performance e otimização ? Tenho que ficar sempre instanciando a mesma `class CalculadoraApplication` toda vez que crio um novo método de teste ?
+
 O teste tem em objetivo verificar a qualidade e funcionalidade de uma porção pequena da aplicação/biblioteca `Calculadora`, todavia não levando em conta esses questionamentos acima, com a ingenuidade de que conseguirá cumprir tal papel. Mas ele ainda consegue fazer verificações, correto ?
 
 Sim, contudo foi testado apenas uma porção da porção da biblioteca `Calculadora`,  agora imagine escalar esses testes para todas as operações que estão contida na `Calculadora`.
