@@ -15,7 +15,7 @@ class CalculadoraApplicationTests {
 	
 // 1º Teste
 	@Test
-	public void testesMenosIngenuosSoma() {
+	public void testesMenosIngenuosDeSoma() {
 		CalculadoraApplication calculadora = new CalculadoraApplication();
 
 		boolean temErro = false;
@@ -34,13 +34,13 @@ class CalculadoraApplicationTests {
 // 2º Teste 
 	@Test
 	public void testeSomarTresMaisTres(){
-		CalculadoraApplication calculadora = new CalculadoraApplication();
+		//CalculadoraApplication calculadora = new CalculadoraApplication();
 		assertEquals(0.0, calculadora.somar(-2, 2));
 	}
 
 	@Test
-	public void testeSomaResultarZero(){
-		CalculadoraApplication calculadora = new CalculadoraApplication();
+	public void testeSomaResultarEmZero(){
+		//CalculadoraApplication calculadora = new CalculadoraApplication();
 		assertEquals(2.0, calculadora.somar(1, 1));
 	}
 
@@ -52,7 +52,7 @@ class CalculadoraApplicationTests {
 
 	@DisplayName("Valida multiplas somas")
 	@ParameterizedTest
-	@CsvSource({"1.0, 1.0, 2.0","-2.0, 2.0, 0.0"})
+	@CsvSource({"1.0, 1.0, 2.0" , "-2.0, 2.0, 0.0"})
 	void testeMultiplasSomasCSV(double parcela1, double parcela2, double resultadoEsperado){
 		assertEquals(resultadoEsperado, calculadora.somar(parcela1, parcela2));
 	}
