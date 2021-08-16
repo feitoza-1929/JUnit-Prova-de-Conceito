@@ -108,7 +108,8 @@ public  class  TesteIngenuoCalculadora {
 
 }
 ```
-O que esse código te diz ? Não muita coisa, não é mesmo ? A culpa não é sua e nem devido a complexidade do algoritmo, porque não há, e, sim, a maneira com que foi escrito. E, sim, são testes, contudo irregulares. Mas por quê? Má nomenclatura, cadeia de métodos, falta de um padrão, afinal, será `true` ou `false` para emitir essa exceção\erro ? O método de verificação que irá emitir o  `erro` ou o método `main` ? E essa cadeia de verificações não pode criar um déficit de performance e otimização ? Tenho que ficar sempre instanciando a mesma `class CalculadoraApplication` toda vez que crio um novo método de teste ? O teste tem em objetivo verificar a qualidade e funcionalidade de uma porção pequena da aplicação/biblioteca `Calculadora`, todavia não levando em conta esses questionamentos acima, com a ingenuidade de que conseguirá cumprir tal papel. Mas ele ainda consegue fazer verificações, correto ?
+O que esse código te diz ? Não muita coisa, não é mesmo ? A culpa não é sua e nem devido a complexidade do algoritmo, porque não há, e, sim, a maneira com que foi escrito. E, sim, são testes, contudo irregulares. Mas por quê? Má nomenclatura, cadeia de métodos, falta de um padrão, afinal, será `true` ou `false` para emitir essa exceção\erro ? O método de verificação que irá emitir o  `erro` ou o método `main` ? E essa cadeia de verificações não pode criar um déficit de performance e otimização ? Tenho que ficar sempre instanciando a mesma `class CalculadoraApplication` toda vez que crio um novo método de teste ?
+O teste tem em objetivo verificar a qualidade e funcionalidade de uma porção pequena da aplicação/biblioteca `Calculadora`, todavia não levando em conta esses questionamentos acima, com a ingenuidade de que conseguirá cumprir tal papel. Mas ele ainda consegue fazer verificações, correto ?
 
 Sim, contudo foi testado apenas uma porção da porção da biblioteca `Calculadora`,  agora imagine escalar esses testes para todas as operações que estão contida na `Calculadora`.
 ```
@@ -195,7 +196,7 @@ Agora há anotações do JUnit, como o `@BeforeALL`  onde podem serem pré-estab
 
 ## *Possibilidades de extensão*
 Basta as ferramentas certas para cada problema e entender essas ferramentas , de forma profunda, é a chave.
- Você só não consegue criar, porque não entende aquilo. Quer um exemplo ? Lembra do `@BeforeALL` ?  Bem, há varias outras notações do JUnit - não se apegue a ferramenta, mas, sim, a ideia que está sendo passada - uma delas é o `@BeforeEach` ,  estabelecendo uma configuração antes de cada teste, como `cleanUp` , que pode limpar o método anterior e liberar recursos que irão ser usados pelo próximo, aumentando a performance dos testes.
+Você só não consegue criar, porque não entende aquilo. Quer um exemplo ? Lembra do `@BeforeALL` ?  Bem, há varias outras notações do JUnit - não se apegue a ferramenta, mas, sim, a ideia que está sendo passada - uma delas é o `@BeforeEach` ,  estabelecendo uma configuração antes de cada teste, como `cleanUp` , que pode limpar o método anterior e liberar recursos que irão ser usados pelo próximo, aumentando a performance dos testes.
 Apenas foque em conhecer algo bem, quando for usar uma ferramenta, ela será apenas uma ferramenta e não o cerne do que você.
  
 
