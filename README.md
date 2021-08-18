@@ -108,7 +108,9 @@ public  class  TesteIngenuoCalculadora {
 
 }
 ```
-O que esse código te diz ? Não muita coisa, não é mesmo ? A culpa não é sua e nem devido a complexidade do algoritmo, porque não há, e, sim, a maneira com que foi escrito. E, sim, são testes, contudo irregulares. Mas por quê? Má nomenclatura, cadeia de métodos, falta de um padrão, afinal, será `true` ou `false` para emitir essa exceção\erro ? Será o método de verificação, em si, que irá emitir o  `erro` ou o método `main` ? E essa cadeia de verificações não pode criar um déficit de performance e otimização ? Tenho que ficar sempre instanciando a mesma `class CalculadoraApplication` toda vez que crio um novo método de teste ?
+O que esse código te diz ?
+
+Não muita coisa, não é mesmo ? A culpa não é sua e nem devido a complexidade do algoritmo, porque não há, e, sim, a maneira com que foi escrito. E, sim, são testes, contudo irregulares. Mas por quê? Má nomenclatura, cadeia de métodos, falta de um padrão, afinal, será `true` ou `false` para emitir essa exceção\erro ? Será o método de verificação, em si, que irá emitir o  `erro` ou o método `main` ? E essa cadeia de verificações não pode criar um déficit de performance e otimização ? Tenho que ficar sempre instanciando a mesma `class CalculadoraApplication` toda vez que crio um novo método de teste ?
 
 O teste tem em objetivo verificar a qualidade e funcionalidade de uma porção pequena da aplicação/biblioteca `Calculadora`, todavia não levando em conta esses questionamentos acima, com a ingenuidade de que conseguirá cumprir tal papel. Mas ele ainda consegue fazer verificações, correto ?
 
@@ -161,7 +163,9 @@ public  void  testesMenosIngenuosDeSoma() {
 }
 ```
 
-O código está claro ? É visível a intenção de seus métodos ? Como dito, ele é menos ingênuo, se notar verá que ainda é um teste com cadeias de `ifs` que poderão tirar a performance, atrasando os demais processos, e minar futuros acréscimos ao teste, pois o acoplamento das verificações é demasiado ridículo. Mas qual seria a solução para esses problemas ? Torna-lo menos ingênuo:
+O código está claro ? É visível a intenção de seus métodos ?
+
+Como dito, ele é menos ingênuo, se notar verá que ainda é um teste com cadeias de `ifs` que poderão tirar a performance, atrasando os demais processos, e minar futuros acréscimos ao teste, pois o acoplamento das verificações é demasiado ridículo. Mas qual seria a solução para esses problemas ? Torna-lo menos ingênuo:
 ```
 @Test
 public  void  testeSomarTresMaisTres(){
@@ -175,8 +179,12 @@ public  void  testeSomaResultarEmZero(){
 	assertEquals(2.0, calculadora.somar(1, 1));
 }
 ```
-Métodos específicos, fácil legibilidade e baixíssimo acoplamento entre as validações, pois pode-se aplicar comportamentos específicos ou desativa-los sem afetar os demais. Tudo certo, né ? Não, há redundância de código ao instanciar a biblioteca `Calculadora` e ainda não é tão performático, pois os métodos consomem recursos demasiadamente. 
-Contudo, tudo tem um custo, certo ? Então, como não consumir recursos ? Não irá deixar de consumir, apenas consumir o necessário evitando grande perda de performance, essa biblioteca é muito simples, agora imagine um sistema mais complexo e cheio de  camadas de funcionalidades para serem testadas, o controle do consumo dos recursos será essencial. Observe:
+Métodos específicos, fácil legibilidade e baixíssimo acoplamento entre as validações, pois pode-se aplicar comportamentos específicos ou desativa-los sem afetar os demais. Tudo certo, né ?
+
+Não, há redundância de código ao instanciar a biblioteca `Calculadora` e ainda não é tão performático, pois os métodos consomem recursos demasiadamente. 
+Contudo, tudo tem um custo, certo ? Então, como não consumir recursos ? 
+
+Não irá deixar de consumir, apenas consumir o necessário evitando grande perda de performance, essa biblioteca é muito simples, agora imagine um sistema mais complexo e cheio de  camadas de funcionalidades para serem testadas, o controle do consumo dos recursos será essencial. Observe:
 
 ```
 @BeforeAll
@@ -198,7 +206,8 @@ Agora há anotações do JUnit, como o `@BeforeALL`  onde podem serem pré-estab
 ## *Possibilidades de extensão*
 Basta as ferramentas certas para cada problema e entender essas ferramentas , de forma profunda, é a chave.
 Você só não consegue criar, porque não entende aquilo. Quer um exemplo ? Lembra do `@BeforeALL` ?  Bem, há varias outras notações do JUnit - não se apegue a ferramenta, mas, sim, a ideia que está sendo passada - uma delas é o `@BeforeEach` ,  estabelecendo uma configuração antes de cada teste, como `cleanUp` , que pode limpar o método anterior e liberar recursos que irão ser usados pelo próximo, aumentando a performance dos testes.
-Apenas foque em conhecer algo bem, quando for usar uma ferramenta, ela será apenas uma ferramenta e não o cerne do que você.
+
+Apenas foque em conhecer algo bem, quando for usar uma ferramenta, ela será apenas mais uma extensão de você e não o cerne.
  
 
 
